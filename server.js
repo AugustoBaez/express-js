@@ -1,9 +1,31 @@
 const express = require("express");
 const app = express();
-const Usuario = require("./modelos/Usuario");
-const Empresa = require("./modelos/Empresa");
+let { faker } = require("@faker-js/faker");
 
-console.log(new Usuario());
+class Empresa {
+    constructor() {
+        this.nombre = faker.company.name()
+        this._id = faker.datatype.uuid();
+        this.direccion = {
+            calle: faker.address.street(),
+            ciudad: faker.address.city(),
+            estado: faker.address.state(),
+            zip: faker.address.zipCode(),
+            pais: faker.address.country()
+        }
+    }
+}
+
+class Usuario {
+    constructor() {
+        this._id = faker.datatype.uuid();
+        this.nombre = faker.name.firstName();
+        this.apellido = faker.name.lastName();
+        this.email = faker.internet.email();
+        this.password = faker.internet.password();
+        this.numero = faker.phone.phoneNumber()
+    }
+}
 
 app.get("/api/users/new", (req, res) => {
     res.json(new Usuario());
