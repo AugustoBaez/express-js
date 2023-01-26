@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-const Usuario = require("./models/Usuario");
-const Empresa = require("./models/Empresa");
+const Usuario = require("./modelos/Usuario");
+const Empresa = require("./modelos/Empresa");
 
 console.log(new Usuario());
 

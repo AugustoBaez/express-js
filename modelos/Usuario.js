@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker';
+let { faker } = require("@faker-js/faker");
 
 module.exports = class Usuario {
     constructor() {
